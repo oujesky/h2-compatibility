@@ -1,0 +1,17 @@
+[versions]
+assertj = "3.27.2"
+h2 = "2.3.232"
+junit = "5.12.1"
+logback = "1.5.18"
+slf4j = "2.0.17"
+
+[libraries]
+
+assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+h2 = { module = "com.h2database:h2", version.ref = "h2" }
+junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
+junit-jupiter-launcher = { module = "org.junit.platform:junit-platform-launcher" }
+junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
