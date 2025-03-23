@@ -4,7 +4,7 @@ Library of functions to extend [H2](https://www.h2database.com/) database with f
 
 Mainly for simplified integration testing in cases where running a real target database in container or standalone could be considered an overkill.
 
-Aim is to provide missing functions, aggregations and types as compatible as possible, with minimal additional dependencies and targeting same minimal JDK version as H2 project, which is currently Java 11.
+Aim is to provide missing functions, aggregations and types as compatible as possible, with minimal additional dependencies and targeting same minimal JDK version as H2 project, which is currently Java 11. Minimum H2 version that is compatible is 2.2.x.
 
 Functions are split into modules and are dynamically registered using the Java `ServiceLoader` mechanism.
 
