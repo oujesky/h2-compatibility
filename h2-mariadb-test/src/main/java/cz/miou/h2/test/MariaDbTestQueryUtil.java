@@ -17,4 +17,8 @@ public class MariaDbTestQueryUtil {
     public static void verifyQuery(String sql, SqlThrowingConsumer<PreparedStatement> binder, SqlThrowingConsumer<ResultSet> verifier) throws SQLException {
         TestQueryUtil.verifyQuery("MariaDB", sql, binder, verifier);
     }
+
+    public static void verifyQueryError(String sql, String expectedMessage) {
+        TestQueryUtil.verifyQueryError("MariaDB", sql, expectedMessage);
+    }
 }

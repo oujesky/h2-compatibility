@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.Locale;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class TestQueryUtil {
 
@@ -33,6 +34,12 @@ public class TestQueryUtil {
                 verifier.accept(rs);
             }
         }
+    }
+
+    public static void verifyQueryError(String mode, String sql, String expectedMessage) {
+        assertThatThrownBy(() -> verifyQuery(mode, sql, rs -> {}))
+            .isInstanceOf(SQLException.class)
+            .hasRootCauseMessage(expectedMessage);
     }
 
     private static Connection createConnection(String mode) throws SQLException {

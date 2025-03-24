@@ -58,6 +58,33 @@ If for some reason some of the functions aren't compatible with H2 anymore, it's
 
 ### MariaDB / MySQL
 
+#### String functions
+
+Module `h2-mariadb-functions`
+
+<details>
+
+<summary>List of supported functions</summary>
+
+* [`BIN`](https://mariadb.com/kb/en/bin/)
+* [`ELT`](https://mariadb.com/kb/en/elt/)
+* [`FIELD`](https://mariadb.com/kb/en/field/)
+* [`FROM_BASE64`](https://mariadb.com/kb/en/from_base64/)
+* [`HEX`](https://mariadb.com/kb/en/hex/)
+* [`LOAD_FILE`](https://mariadb.com/kb/en/load_file/)
+* [`MID`](https://mariadb.com/kb/en/mid/)
+* [`NATURAL_SORT_KEY`](https://mariadb.com/kb/en/natural_sort_key/)
+* [`ORD`](https://mariadb.com/kb/en/ord/)
+* [`QUOTE`](https://mariadb.com/kb/en/quote/)
+* [`REGEXP_INSTR`](https://mariadb.com/kb/en/regexp_instr/)
+* [`REVERSE`](https://mariadb.com/kb/en/reverse/)
+* [`STRCMP`](https://mariadb.com/kb/en/strcmp/)
+* [`SUBSTRING_INDEX`](https://mariadb.com/kb/en/substring_index/)
+* [`TO_BASE64`](https://mariadb.com/kb/en/to_base64/)
+* [`UNHEX`](https://mariadb.com/kb/en/unhex/)
+
+</details>
+
 #### Date / Time functions
 
 Module `h2-mariadb-functions`
