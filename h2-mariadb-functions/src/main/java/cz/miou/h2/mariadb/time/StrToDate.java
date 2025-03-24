@@ -268,29 +268,29 @@ public class StrToDate implements FunctionDefinition {
 
         if (isWeekDate(fields)) {
             if (fields.containsKey(FIELD_WEEK_OF_WEEK_BASED_YEAR_SUNDAY)) {
-                return Optional.of(createDateFromWeek(fields, FIELD_WEEK_BASED_YEAR_SUNDAY, FIELD_WEEK_OF_WEEK_BASED_YEAR_SUNDAY, 1));
+                return Optional.of(createDateFromWeek(fields, FIELD_WEEK_BASED_YEAR_SUNDAY, FIELD_WEEK_OF_WEEK_BASED_YEAR_SUNDAY));
             }
 
             if (fields.containsKey(FIELD_WEEK_OF_WEEK_BASED_YEAR_MONDAY)) {
-                return Optional.of(createDateFromWeek(fields, FIELD_WEEK_BASED_YEAR_MONDAY, FIELD_WEEK_OF_WEEK_BASED_YEAR_MONDAY, 0));
+                return Optional.of(createDateFromWeek(fields, FIELD_WEEK_BASED_YEAR_MONDAY, FIELD_WEEK_OF_WEEK_BASED_YEAR_MONDAY));
             }
 
             if (fields.containsKey(FIELD_WEEK_OF_YEAR_SUNDAY)) {
-                return Optional.of(createDateFromWeek(fields, ChronoField.YEAR, FIELD_WEEK_OF_YEAR_SUNDAY, 1));
+                return Optional.of(createDateFromWeek(fields, ChronoField.YEAR, FIELD_WEEK_OF_YEAR_SUNDAY));
             }
 
             if (fields.containsKey(FIELD_WEEK_OF_YEAR_MONDAY)) {
-                return Optional.of(createDateFromWeek(fields, ChronoField.YEAR, FIELD_WEEK_OF_YEAR_MONDAY, 0));
+                return Optional.of(createDateFromWeek(fields, ChronoField.YEAR, FIELD_WEEK_OF_YEAR_MONDAY));
             }
         }
 
         return Optional.empty();
     }
 
-    private static LocalDate createDateFromWeek(Map<TemporalField, Integer> fields, TemporalField yearField, TemporalField weekField, long offset) {
+    private static LocalDate createDateFromWeek(Map<TemporalField, Integer> fields, TemporalField yearField, TemporalField weekField) {
         return LocalDate.now()
             .with(yearField, fields.get(yearField))
-            .with(weekField, fields.get(weekField) + offset)
+            .with(weekField, fields.get(weekField))
             .with(ChronoField.DAY_OF_WEEK, fields.get(ChronoField.DAY_OF_WEEK));
     }
 
