@@ -56,6 +56,18 @@ class LoaderExcludeTest {
     }
 
     @Test
+    void testExcludeFunctionAlias(Connection connection) throws SQLException {
+        System.setProperty(PROPERTY_EXCLUDE, "TEST_FUNCTION_ALIAS");
+
+        Loader.load(connection);
+
+        var statement = connection.createStatement();
+        assertThatThrownBy(() -> statement.execute("SELECT TEST_FUNCTION_ALIAS('input')"))
+            .isInstanceOf(SQLException.class)
+            .hasMessageStartingWith("Function \"TEST_FUNCTION_ALIAS\" not found;");
+    }
+
+    @Test
     void testExcludeAggregate(Connection connection) throws SQLException {
         System.setProperty(PROPERTY_EXCLUDE, "TEST_AGGREGATE");
 

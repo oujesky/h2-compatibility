@@ -45,6 +45,24 @@ class LoaderTest {
     }
 
     @Test
+    void testFunctionAlias(Connection connection) throws SQLException {
+        Loader.load(connection);
+
+        var statement = connection.createStatement();
+        statement.execute("SELECT TEST_FUNCTION_ALIAS('input')");
+
+        var rs = statement.getResultSet();
+        assertThat(rs.next()).isTrue();
+        assertThat(rs.getString(1)).isEqualTo("TEST:input");
+
+        statement.execute("SELECT TEST_FUNCTION_ALIAS('input', 123)");
+
+        rs = statement.getResultSet();
+        assertThat(rs.next()).isTrue();
+        assertThat(rs.getString(1)).isEqualTo("TEST:input:123");
+    }
+
+    @Test
     void testAggregateDefinition(Connection connection) throws SQLException {
         Loader.load(connection);
 

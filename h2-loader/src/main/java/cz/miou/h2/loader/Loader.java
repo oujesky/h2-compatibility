@@ -1,6 +1,7 @@
 package cz.miou.h2.loader;
 
 import cz.miou.h2.api.AggregateDefinition;
+import cz.miou.h2.api.FunctionAlias;
 import cz.miou.h2.api.FunctionDefinition;
 import cz.miou.h2.api.TypeDefinition;
 import org.slf4j.Logger;
@@ -41,6 +42,7 @@ public class Loader {
         try (var statement = connection.createStatement()) {
             registerTypes(statement, excludes);
             registerFunctions(statement, excludes);
+            registerFunctionAliases(statement, excludes);
             registerAggregates(statement, excludes);
         }
     }
@@ -104,12 +106,40 @@ public class Loader {
         }
     }
 
-    private static void registerFunction(Statement statement, FunctionDefinition definition) throws SQLException {
-        var deterministic = definition.isDeterministic() ? " DETERMINISTIC" : "";
-        var name = definition.getName();
-        var functionClass = definition.getClass().getName();
-        var functionMethod = definition.getMethodName();
+    private static void registerFunctionAliases(Statement statement, Set<String> excludes) throws SQLException {
+        for (var alias : ServiceLoader.load(FunctionAlias.class)) {
 
+            if (excludes.contains(alias.getName())) {
+                if (LOG.isDebugEnabled()) {
+                    LOG.debug("Function {} is excluded", alias.getName());
+                }
+                continue;
+            }
+
+            try {
+                registerAlias(statement, alias);
+            } catch (SQLException e) {
+                if (e.getErrorCode() == ERROR_CODE_FUNCTION_ALIAS_ALREADY_EXISTS) {
+                    if (LOG.isWarnEnabled()) {
+                        LOG.warn("Function {} already exists", alias.getName());
+                    }
+                } else {
+                    throw e;
+                }
+            }
+        }
+    }
+
+    private static void registerFunction(Statement statement, FunctionDefinition definition) throws SQLException {
+        registerFunction(statement, definition.getName(), definition.isDeterministic(), definition.getClass().getName(), definition.getMethodName());
+    }
+
+    private static void registerAlias(Statement statement, FunctionAlias definition) throws SQLException {
+        registerFunction(statement, definition.getName(), definition.isDeterministic(), definition.getClassName(), definition.getMethodName());
+    }
+
+    private static void registerFunction(Statement statement, String name, boolean isDeterministic, String functionClass, String functionMethod) throws SQLException {
+        var deterministic = isDeterministic ? " DETERMINISTIC" : "";
         statement.execute("CREATE ALIAS IF NOT EXISTS " + name + deterministic + " FOR \"" + functionClass + "." + functionMethod + "\"");
 
         if (LOG.isTraceEnabled()) {
