@@ -5,6 +5,7 @@ include("h2-loader")
 include("h2-test")
 include("h2-mariadb-test")
 include("h2-mariadb-functions")
+include("h2-mariadb-inet")
 
 dependencyResolutionManagement {
     versionCatalogs {

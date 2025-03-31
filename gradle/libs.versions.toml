@@ -1,6 +1,7 @@
 [versions]
 assertj = "3.27.2"
 h2 = "2.3.232"
+ipaddress = "5.5.1"
 junit = "5.12.1"
 logback = "1.5.18"
 slf4j = "2.0.17"
@@ -9,6 +10,7 @@ slf4j = "2.0.17"
 
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 h2 = { module = "com.h2database:h2", version.ref = "h2" }
+ipaddress = { module = "com.github.seancfoley:ipaddress", version.ref = "ipaddress" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-jupiter-launcher = { module = "org.junit.platform:junit-platform-launcher" }

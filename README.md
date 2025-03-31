@@ -127,6 +127,25 @@ Module `h2-mariadb-functions`
 
 </details>
 
+#### IP address functions
+
+Module `h2-mariadb-inet`
+
+<details>
+
+<summary>List of supported functions</summary>
+
+* [`INET_ATON`](https://mariadb.com/kb/en/inet_aton/)
+* [`INET_NTOA`](https://mariadb.com/kb/en/inet_ntoa/)
+* [`INET6_ATON`](https://mariadb.com/kb/en/inet6_aton/)
+* [`INET6_NTOA`](https://mariadb.com/kb/en/inet6_ntoa/)
+* [`IS_IPV4`](https://mariadb.com/kb/en/is_ipv4/)
+* [`IS_IPV4_COMPAT`](https://mariadb.com/kb/en/is_ipv4_compat/)
+* [`IS_IPV4_MAPPED`](https://mariadb.com/kb/en/is_ipv4_mapped/)
+* [`IS_IPV6`](https://mariadb.com/kb/en/is_ipv6/)
+
+</details>
+
 ##### Notes
 
 Due to how `DATE`, `TIME` and `TIMESTAMP` types in H2 works, the functions behave as if MariaDB had

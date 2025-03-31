@@ -1,0 +1,8 @@
+cz.miou.h2.mariadb.inet.Inet6Aton
+cz.miou.h2.mariadb.inet.Inet6Ntoa
+cz.miou.h2.mariadb.inet.InetAton
+cz.miou.h2.mariadb.inet.InetNtoa
+cz.miou.h2.mariadb.inet.IsIpv4
+cz.miou.h2.mariadb.inet.IsIpv4Compat
+cz.miou.h2.mariadb.inet.IsIpv4Mapped
+cz.miou.h2.mariadb.inet.IsIpv6
