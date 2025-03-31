@@ -175,6 +175,25 @@ Module `h2-mariadb-inet`
 
 </details>
 
+#### Hashing and cryptography functions
+
+Module `h2-mariadb-crypto`
+
+<details>
+
+<summary>List of supported functions</summary>
+
+* [`AES_DECRYPT`](https://mariadb.com/kb/en/aes_decrypt/)
+* [`AES_ENCRYPT`](https://mariadb.com/kb/en/aes_encrypt/)
+* [`CRC32C`](https://mariadb.com/kb/en/crc32c/)
+* [`CRC32`](https://mariadb.com/kb/en/crc32/)
+* [`KDF`](https://mariadb.com/kb/en/kdf/)
+* [`MD5`](https://mariadb.com/kb/en/md5/)
+* [`SHA1`](https://mariadb.com/kb/en/sha1/)
+* [`SHA2`](https://mariadb.com/kb/en/sha2/)
+
+</details>
+
 ##### Notes
 
 Due to how `DATE`, `TIME` and `TIMESTAMP` types in H2 works, the functions behave as if MariaDB had

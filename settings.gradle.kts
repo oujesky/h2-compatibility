@@ -17,3 +17,4 @@ dependencyResolutionManagement {
         }
     }
 }
+include("h2-mariadb-crypto")
