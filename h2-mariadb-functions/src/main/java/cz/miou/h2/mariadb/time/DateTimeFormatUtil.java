@@ -1,5 +1,6 @@
 package cz.miou.h2.mariadb.time;
 
+import cz.miou.h2.mariadb.util.LocaleUtil;
 import org.h2.value.Value;
 
 import java.sql.Connection;
@@ -10,7 +11,6 @@ import java.time.temporal.ChronoField;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalField;
 import java.time.temporal.WeekFields;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
@@ -109,7 +109,7 @@ class DateTimeFormatUtil {
 
     public static String formatDateTime(Connection connection, Value input, String format, String language, Set<String> allowedTokens) {
         var temporal = valueToTemporal(connection, input);
-        var locale = findLocale(language);
+        var locale = LocaleUtil.findLocale(language);
 
         var sb = new StringBuilder();
         var matcher = FORMAT_TOKEN_PATTERN.matcher(format);
@@ -138,17 +138,6 @@ class DateTimeFormatUtil {
         return new DateTimeFormatterBuilder()
             .appendValue(field, width)
             .toFormatter();
-    }
-
-    private static Locale findLocale(String locale) {
-        if (locale == null) {
-            return Locale.getDefault();
-        }
-
-        var split = locale.split("[-_]", 2);
-        return split.length < 2
-            ? new Locale(split[0])
-            : new Locale(split[0], split[1]);
     }
 
     private static String dayNumberWithSuffix(Temporal temporal) {

@@ -11,7 +11,7 @@ import static cz.miou.h2.mariadb.time.DateTimeUtil.parseTimeExpression;
 /**
  * <a href="https://mariadb.com/kb/en/addtime/">ADDTIME</a>
  * <p>
- * Differences with MariaDB:
+ * Differences to MariaDB:
  * <ul>
  *   <li>H2 TIME value is strictly 00:00:00 to 23:59:59, whereas MariaDB allows negative values (e.g. -01:00:00) or
  *          values spilling to another day (e.g. 24:00:00)

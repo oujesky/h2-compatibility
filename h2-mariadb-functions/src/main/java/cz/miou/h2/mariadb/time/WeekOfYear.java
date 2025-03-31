@@ -8,6 +8,9 @@ import java.time.temporal.WeekFields;
 
 import static cz.miou.h2.mariadb.time.DateTimeUtil.valueToTemporal;
 
+/**
+ * <a href="https://mariadb.com/kb/en/weekofyear/">WEEKOFYEAR</a>
+ */
 public class WeekOfYear implements FunctionDefinition {
 
     @Override

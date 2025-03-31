@@ -4,6 +4,8 @@ import cz.miou.h2.api.FunctionDefinition;
 
 import java.util.List;
 
+import static cz.miou.h2.mariadb.util.ConversionUtil.formatWithUnit;
+
 /**
  * <a href="https://mariadb.com/kb/en/format_pico_time/">FORMAT_PICO_TIME</a>
  */
@@ -33,16 +35,6 @@ public class FormatPicoTime implements FunctionDefinition {
 
     @SuppressWarnings("unused")
     public static String formatPicoTime(long timeVal) {
-        var size = THRESHOLDS.size();
-        for (int i = 0; i < size; i++) {
-            var threshold = THRESHOLDS.get(i);
-            var unit = UNITS.get(i);
-
-            if (timeVal >= threshold) {
-                return String.format("%.2f %s", (double) timeVal / threshold, unit);
-            }
-        }
-
-        return String.format("%d ps", timeVal);
+        return formatWithUnit(timeVal, THRESHOLDS, UNITS, "ps");
     }
 }

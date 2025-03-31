@@ -25,7 +25,7 @@ public class UnHex implements FunctionDefinition {
     }
 
     @SuppressWarnings("unused")
-    public static String unHex(Value input) {
-        return new String(StringUtils.convertHexToBytes(input.getString()));
+    public static byte[] unHex(Value input) {
+        return StringUtils.convertHexToBytes(input.getString());
     }
 }

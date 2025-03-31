@@ -25,22 +25,23 @@ public class Ord implements FunctionDefinition {
     }
 
     @SuppressWarnings("unused")
-    public static Integer ord(String input) {
+    public static Long ord(String input) {
         if (input == null) {
             return null;
         }
 
         if (input.isEmpty()) {
-            return 0;
+            return 0L;
         }
 
         var bytes = input.substring(0, 1).getBytes(StandardCharsets.UTF_8);
 
-        var result = 0;
+        var result = 0L;
         for (byte b : bytes) {
             result = (result << 8) + (b & 0xFF);
         }
 
         return result;
     }
+
 }

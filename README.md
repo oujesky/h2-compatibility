@@ -68,10 +68,14 @@ Module `h2-mariadb-functions`
 
 * [`BIN`](https://mariadb.com/kb/en/bin/)
 * [`ELT`](https://mariadb.com/kb/en/elt/)
+* [`EXPORT_SET`](https://mariadb.com/kb/en/export_set/)
 * [`FIELD`](https://mariadb.com/kb/en/field/)
+* [`FIND_IN_SET`](https://mariadb.com/kb/en/find_in_set/)
+* [`FORMAT`](https://mariadb.com/kb/en/format/)
 * [`FROM_BASE64`](https://mariadb.com/kb/en/from_base64/)
 * [`HEX`](https://mariadb.com/kb/en/hex/)
 * [`LOAD_FILE`](https://mariadb.com/kb/en/load_file/)
+* [`MAKE_SET`](https://mariadb.com/kb/en/make_set/)
 * [`MID`](https://mariadb.com/kb/en/mid/)
 * [`NATURAL_SORT_KEY`](https://mariadb.com/kb/en/natural_sort_key/)
 * [`ORD`](https://mariadb.com/kb/en/ord/)
@@ -85,6 +89,31 @@ Module `h2-mariadb-functions`
 
 </details>
 
+#### Numeric, binary and misc. functions
+
+Module `h2-mariadb-functions`
+
+<details>
+
+<summary>List of supported functions</summary>
+
+* [`BIT_COUNT`](https://mariadb.com/kb/en/bit_count/)
+* [`CONV`](https://mariadb.com/kb/en/conv/)
+* [`FORMAT_BYTES`](https://mariadb.com/kb/en/miscellaneous-functions-format_bytes/)
+* [`ISNULL`](https://mariadb.com/kb/en/isnull/)
+* [`LOG2`](https://mariadb.com/kb/en/log2/)
+* [`OCT`](https://mariadb.com/kb/en/oct/)
+* [`POW`](https://mariadb.com/kb/en/pow/)
+* [`SLEEP`](https://mariadb.com/kb/en/sleep/)
+* [`SYS_GUID`](https://mariadb.com/kb/en/sys_guid/)
+* [`UNCOMPRESSED_LENGTH`](https://mariadb.com/kb/en/uncompressed_length/)
+* [`UNCOMPRESS`](https://mariadb.com/kb/en/uncompress/)
+* [`UUIDV4`](https://mariadb.com/kb/en/uuidv4/)
+* [`UUIDV7`](https://mariadb.com/kb/en/uuidv7/)
+* [`UUID_SHORT`](https://mariadb.com/kb/en/uuid_short/)
+
+</details>
+
 #### Date / Time functions
 
 Module `h2-mariadb-functions`
@@ -94,8 +123,8 @@ Module `h2-mariadb-functions`
 <summary>List of supported functions</summary>
 
 * [`ADDDATE`](https://mariadb.com/kb/en/adddate/)
-* [`ADD_MONTHS`](https://mariadb.com/kb/en/add_months/)
 * [`ADDTIME`](https://mariadb.com/kb/en/addtime/)
+* [`ADD_MONTHS`](https://mariadb.com/kb/en/add_months/)
 * [`CONVERT_TZ`](https://mariadb.com/kb/en/convert_tz/)
 * [`DATE_ADD`](https://mariadb.com/kb/en/date_add/)
 * [`DATE_FORMAT`](https://mariadb.com/kb/en/date_format/)
@@ -106,21 +135,21 @@ Module `h2-mariadb-functions`
 * [`MAKETIME`](https://mariadb.com/kb/en/maketime/)
 * [`MICROSECOND`](https://mariadb.com/kb/en/microsecond/)
 * [`PERIOD_ADD`](https://mariadb.com/kb/en/period_add/)
-* [`PERIOD_DIFF`](https://mariadb.com/kb/en/period_diff/)
+* [`PERIOD_DIFF`](https://mariadb.com/kb/en/period_add/)
 * [`SEC_TO_TIME`](https://mariadb.com/kb/en/sec_to_time/)
 * [`STR_TO_DATE`](https://mariadb.com/kb/en/str_to_date/)
 * [`SUBDATE`](https://mariadb.com/kb/en/subdate/)
 * [`SUBTIME`](https://mariadb.com/kb/en/subtime/)
-* [`TIME`](https://mariadb.com/kb/en/time/)
+* [`TIME`](https://mariadb.com/kb/en/time-function/)
 * [`TIMEDIFF`](https://mariadb.com/kb/en/timediff/)
+* [`TIMESTAMP`](https://mariadb.com/kb/en/timestamp-function/)
 * [`TIME_FORMAT`](https://mariadb.com/kb/en/time_format/)
-* [`TIMESTAMP`](https://mariadb.com/kb/en/timestamp/)
 * [`TIME_TO_SEC`](https://mariadb.com/kb/en/time_to_sec/)
 * [`TO_DAYS`](https://mariadb.com/kb/en/to_days/)
 * [`TO_SECONDS`](https://mariadb.com/kb/en/to_seconds/)
 * [`UTC_DATE`](https://mariadb.com/kb/en/utc_date/)
 * [`UTC_TIME`](https://mariadb.com/kb/en/utc_time/)
-* [`UTC_TIMESTAMP`](https://mariadb.com/kb/en/utc_timestamp/)
+* [`UTC_TIME`](https://mariadb.com/kb/en/utc_time/)
 * [`WEEKDAY`](https://mariadb.com/kb/en/weekday/)
 * [`WEEKOFYEAR`](https://mariadb.com/kb/en/weekofyear/)
 * [`YEARWEEK`](https://mariadb.com/kb/en/yearweek/)

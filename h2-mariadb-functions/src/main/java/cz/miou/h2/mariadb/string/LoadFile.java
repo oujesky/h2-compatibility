@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * <a href="https://mariadb.com/kb/en/load_file/">...</a>
+ * <a href="https://mariadb.com/kb/en/load_file/">LOAD_FILE</a>
  */
 public class LoadFile implements FunctionDefinition {
 
