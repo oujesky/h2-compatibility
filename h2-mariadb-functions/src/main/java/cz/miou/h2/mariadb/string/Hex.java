@@ -32,7 +32,7 @@ public class Hex implements FunctionDefinition {
     @SuppressWarnings("unused")
     public static String hex(Value input) {
         if (input instanceof ValueChar || input instanceof ValueVarchar || input instanceof ValueBinary || input instanceof ValueVarbinary) {
-            return StringUtils.convertBytesToHex(input.getBytes()).toUpperCase();
+            return StringUtils.convertBytesToHex(input.getBytesNoCopy()).toUpperCase();
         }
 
         return ConversionUtil.convert(input, 10, 16);

@@ -1,12 +1,5 @@
 rootProject.name = "h2-compatibility"
 
-include("h2-api")
-include("h2-loader")
-include("h2-test")
-include("h2-mariadb-test")
-include("h2-mariadb-functions")
-include("h2-mariadb-inet")
-
 dependencyResolutionManagement {
     versionCatalogs {
         create("libs") {
@@ -17,4 +10,12 @@ dependencyResolutionManagement {
         }
     }
 }
+
+include("h2-api")
+include("h2-loader")
+include("h2-test")
+include("h2-mariadb-test")
+include("h2-mariadb-functions")
+include("h2-mariadb-inet")
 include("h2-mariadb-crypto")
+include("h2-mariadb-json")

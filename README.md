@@ -194,6 +194,49 @@ Module `h2-mariadb-crypto`
 
 </details>
 
+#### JSON functions
+
+Module `h2-mariadb-json`
+
+<details>
+
+<summary>List of supported functions</summary>
+
+* [`JSON_ARRAY_APPEND`](https://mariadb.com/kb/en/json_array_append/)
+* [`JSON_ARRAY_INSERT`](https://mariadb.com/kb/en/json_array_insert/)
+* [`JSON_ARRAY_INTERSECT`](https://mariadb.com/kb/en/json_array_intersect/)
+* [`JSON_COMPACT`](https://mariadb.com/kb/en/json_compact/)
+* [`JSON_CONTAINS`](https://mariadb.com/kb/en/json_contains/)
+* [`JSON_CONTAINS_PATH`](https://mariadb.com/kb/en/json_contains_path/)
+* [`JSON_DEPTH`](https://mariadb.com/kb/en/json_depth/)
+* [`JSON_DETAILED`](https://mariadb.com/kb/en/json_detailed/)
+* [`JSON_EQUALS`](https://mariadb.com/kb/en/json_equals/)
+* [`JSON_EXISTS`](https://mariadb.com/kb/en/json_exists/)
+* [`JSON_EXTRACT`](https://mariadb.com/kb/en/json_extract/)
+* [`JSON_INSERT`](https://mariadb.com/kb/en/json_insert/)
+* [`JSON_KEYS`](https://mariadb.com/kb/en/json_keys/)
+* [`JSON_KEY_VALUE`](https://mariadb.com/kb/en/json_key_value/)
+* [`JSON_LENGTH`](https://mariadb.com/kb/en/json_length/)
+* [`JSON_LOOSE`](https://mariadb.com/kb/en/json_loose/)
+* [`JSON_MERGE`](https://mariadb.com/kb/en/json_merge/)
+* [`JSON_MERGE_PATCH`](https://mariadb.com/kb/en/json_merge_patch/)
+* [`JSON_NORMALIZE`](https://mariadb.com/kb/en/json_normalize/)
+* [`JSON_OBJECT_FILTER_KEYS`](https://mariadb.com/kb/en/json_object_filter_keys/)
+* [`JSON_OBJECT_TO_ARRAY`](https://mariadb.com/kb/en/json_object_to_array/)
+* [`JSON_OVERLAPS`](https://mariadb.com/kb/en/json_overlaps/)
+* [`JSON_QUERY`](https://mariadb.com/kb/en/json_query/)
+* [`JSON_QUOTE`](https://mariadb.com/kb/en/json_quote/)
+* [`JSON_REMOVE`](https://mariadb.com/kb/en/json_remove/)
+* [`JSON_REPLACE`](https://mariadb.com/kb/en/json_replace/)
+* [`JSON_SEARCH`](https://mariadb.com/kb/en/json_search/)
+* [`JSON_SET`](https://mariadb.com/kb/en/json_set/)
+* [`JSON_TYPE`](https://mariadb.com/kb/en/json_type/)
+* [`JSON_UNQUOTE`](https://mariadb.com/kb/en/json_unquote/)
+* [`JSON_VALID`](https://mariadb.com/kb/en/json_valid/)
+* [`JSON_VALUE`](https://mariadb.com/kb/en/json_value/)
+
+</details>
+
 ##### Notes
 
 Due to how `DATE`, `TIME` and `TIMESTAMP` types in H2 works, the functions behave as if MariaDB had

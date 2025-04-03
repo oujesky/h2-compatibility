@@ -3,6 +3,9 @@ assertj = "3.27.2"
 h2 = "2.3.232"
 hkdf = "2.0.0"
 ipaddress = "5.5.1"
+jackson = "2.18.3"
+json-path = "2.9.0"
+json-unit = "2.38.0"
 junit = "5.12.1"
 logback = "1.5.18"
 slf4j = "2.0.17"
@@ -12,6 +15,9 @@ assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
 h2 = { module = "com.h2database:h2", version.ref = "h2" }
 hkdf = { module = "at.favre.lib:hkdf", version.ref = "hkdf" }
 ipaddress = { module = "com.github.seancfoley:ipaddress", version.ref = "ipaddress" }
+jackson-databind = { module = "com.fasterxml.jackson.core:jackson-databind", version.ref = "jackson" }
+json-path = { module = "com.jayway.jsonpath:json-path", version.ref = "json-path" }
+json-unit-assertj = { module = "net.javacrumbs.json-unit:json-unit-assertj", version.ref = "json-unit" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
 junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit" }
 junit-jupiter-launcher = { module = "org.junit.platform:junit-platform-launcher" }
