@@ -1,5 +1,6 @@
-package cz.miou.h2.mariadb.misc;
+package cz.miou.h2.mariadb.uuid;
 
+import com.fasterxml.uuid.Generators;
 import cz.miou.h2.api.FunctionDefinition;
 import org.h2.value.ValueUuid;
 
@@ -20,7 +21,7 @@ public class UuidV7 implements FunctionDefinition {
 
     @SuppressWarnings("unused")
     public static ValueUuid uuidV7() {
-        return ValueUuid.getNewRandom(7);
+        return ValueUuid.get(Generators.timeBasedEpochGenerator().generate());
     }
     
 }

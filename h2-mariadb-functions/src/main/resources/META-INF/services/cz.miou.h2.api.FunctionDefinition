@@ -6,8 +6,6 @@ cz.miou.h2.mariadb.misc.SysGuid
 cz.miou.h2.mariadb.misc.Uncompress
 cz.miou.h2.mariadb.misc.UncompressedLength
 cz.miou.h2.mariadb.misc.UuidShort
-cz.miou.h2.mariadb.misc.UuidV4
-cz.miou.h2.mariadb.misc.UuidV7
 cz.miou.h2.mariadb.numeric.Conv
 cz.miou.h2.mariadb.numeric.Log2
 cz.miou.h2.mariadb.numeric.Oct

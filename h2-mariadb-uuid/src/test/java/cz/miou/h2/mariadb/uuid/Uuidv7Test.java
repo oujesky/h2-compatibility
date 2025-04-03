@@ -1,4 +1,4 @@
-package cz.miou.h2.mariadb.misc;
+package cz.miou.h2.mariadb.uuid;
 
 import org.junit.jupiter.api.Test;
 

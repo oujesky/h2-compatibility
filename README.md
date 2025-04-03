@@ -6,7 +6,7 @@ Mainly for simplified integration testing in cases where running a real target d
 
 Aim is to provide missing functions, aggregations and types as compatible as possible, with minimal additional dependencies and targeting same minimal JDK version as H2 project, which is currently Java 11. Minimum H2 version that is compatible is 2.2.x.
 
-Functions are split into modules and are dynamically registered using the Java `ServiceLoader` mechanism.
+Functions are split into modules to minimize dependency footprint and are dynamically registered using the Java `ServiceLoader` mechanism.
 
 ## Usage
 
@@ -108,8 +108,6 @@ Module `h2-mariadb-functions`
 * [`SYS_GUID`](https://mariadb.com/kb/en/sys_guid/)
 * [`UNCOMPRESSED_LENGTH`](https://mariadb.com/kb/en/uncompressed_length/)
 * [`UNCOMPRESS`](https://mariadb.com/kb/en/uncompress/)
-* [`UUIDV4`](https://mariadb.com/kb/en/uuidv4/)
-* [`UUIDV7`](https://mariadb.com/kb/en/uuidv7/)
 * [`UUID_SHORT`](https://mariadb.com/kb/en/uuid_short/)
 
 </details>
@@ -234,6 +232,19 @@ Module `h2-mariadb-json`
 * [`JSON_UNQUOTE`](https://mariadb.com/kb/en/json_unquote/)
 * [`JSON_VALID`](https://mariadb.com/kb/en/json_valid/)
 * [`JSON_VALUE`](https://mariadb.com/kb/en/json_value/)
+
+</details>
+
+#### UUID functions
+
+Module `h2-mariadb-uuid`
+
+<details>
+
+<summary>List of supported functions</summary>
+
+* [`UUIDV4`](https://mariadb.com/kb/en/uuidv4/)
+* [`UUIDV7`](https://mariadb.com/kb/en/uuidv7/)
 
 </details>
 
