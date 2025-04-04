@@ -29,6 +29,7 @@ import com.jayway.jsonpath.internal.path.CompiledPath;
 import com.jayway.jsonpath.internal.path.PathCompiler;
 import com.jayway.jsonpath.internal.path.PropertyPathToken;
 import com.jayway.jsonpath.spi.json.JacksonJsonNodeJsonProvider;
+import com.jayway.jsonpath.spi.mapper.JacksonMappingProvider;
 import org.h2.value.Value;
 import org.h2.value.ValueBigint;
 import org.h2.value.ValueBoolean;
@@ -279,8 +280,10 @@ class JsonUtil {
 
     public static Configuration getJsonPathConfiguration() {
         if (jsonPathConfiguration == null) {
+            var mapper = getObjectMapper();
             jsonPathConfiguration = Configuration.builder()
-                .jsonProvider(new JsonProvider(getObjectMapper()))
+                .jsonProvider(new JsonProvider(mapper))
+                .mappingProvider(new MappingProvider(mapper))
                 .options(Option.SUPPRESS_EXCEPTIONS)
                 .build();
         }
@@ -366,6 +369,7 @@ class JsonUtil {
         public JsonProvider(ObjectMapper objectMapper) {
             super(objectMapper);
         }
+
         @Override
         public String toJson(Object obj) {
             if (!(obj instanceof JsonNode)) {
@@ -385,8 +389,27 @@ class JsonUtil {
             return ((ArrayNode) obj).path(idx);
         }
 
-
     }
+
+    private static class MappingProvider extends JacksonMappingProvider {
+
+        public MappingProvider(ObjectMapper objectMapper) {
+            super(objectMapper);
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        public <T> T map(Object source, Class<T> targetType, Configuration configuration) {
+            if (source == null) {
+                return null;
+            }
+            if (targetType.isAssignableFrom(source.getClass())) {
+                return (T) source;
+            }
+            return super.map(source, targetType, configuration);
+        }
+    }
+
     private static class JsonEqualsComparator implements Comparator<JsonNode> {
 
         @SuppressWarnings("ComparatorMethodParameterNotUsed")

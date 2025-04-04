@@ -18,3 +18,7 @@ dependencies {
     testRuntimeOnly(libs.junit.jupiter.launcher)
     testRuntimeOnly(libs.logback.classic)
 }
+
+configurations.configureEach {
+    exclude(group = "net.minidev", module = "json-smart")
+}
