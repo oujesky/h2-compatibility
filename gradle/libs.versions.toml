@@ -1,5 +1,6 @@
 [versions]
 assertj = "3.27.2"
+flyway = "9.22.3"
 h2 = "2.3.232"
 hkdf = "2.0.0"
 ipaddress = "5.5.1"
@@ -13,6 +14,7 @@ uuid = "5.1.0"
 
 [libraries]
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
+flyway-core = { module = "org.flywaydb:flyway-core", version.ref = "flyway" }
 h2 = { module = "com.h2database:h2", version.ref = "h2" }
 hkdf = { module = "at.favre.lib:hkdf", version.ref = "hkdf" }
 ipaddress = { module = "com.github.seancfoley:ipaddress", version.ref = "ipaddress" }

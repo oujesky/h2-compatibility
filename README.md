@@ -50,6 +50,28 @@ Loader.load(connection);
 
 ```
 
+#### Using Flyway migration
+
+As a convenience option for projects using [Flyway](https://github.com/flyway/flyway) for handling database migrates, 
+it's possible to add a dependency to `h2-loader-flyway` module, that will automatically provide a migration with 
+version 0 targeting a H2 database environment, that would load all currently present functions.  
+
+##### Gradle
+```kotlin
+testRuntimeOnly("cz.miou.h2:h2-loader-flyway:1.0.0")
+```
+
+##### Maven
+
+```xml
+<dependency>
+    <groupId>cz.miou.h2</groupId>
+    <artifactId>h2-loader-flyway</artifactId>
+    <version>1.0.0</version>
+    <scope>test</scope>
+</dependency>
+```
+
 #### Troubleshooting
 
 If for some reason some of the functions aren't compatible with H2 anymore, it's possible to exclude them by specifying `cz.miou.h2.loader.exclude` system property with a coma separated list of function names.

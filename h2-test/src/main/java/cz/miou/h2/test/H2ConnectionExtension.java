@@ -8,29 +8,41 @@ import org.junit.jupiter.api.extension.ParameterContext;
 import org.junit.jupiter.api.extension.ParameterResolutionException;
 import org.junit.jupiter.api.extension.ParameterResolver;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
+import java.util.UUID;
 
 public class H2ConnectionExtension implements ParameterResolver, BeforeEachCallback, AfterEachCallback {
 
+    private JdbcDataSource dataSource;
     private Connection connection;
 
     @Override
     public boolean supportsParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
-        return parameterContext.getParameter().getType().equals(Connection.class);
+        return parameterContext.getParameter().getType().equals(Connection.class)
+               || parameterContext.getParameter().getType().equals(DataSource.class);
     }
 
     @Override
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
-        return connection;
+        if (parameterContext.getParameter().getType().equals(Connection.class)) {
+            return connection;
+        }
+
+        if (parameterContext.getParameter().getType().equals(DataSource.class)) {
+            return dataSource;
+        }
+
+        throw new IllegalStateException("Unsupported parameter type: " + parameterContext.getParameter().getType());
     }
 
     @Override
     public void beforeEach(ExtensionContext context) throws Exception {
-        var ds = new JdbcDataSource();
-        ds.setURL("jdbc:h2:mem:");
-        ds.setUser("sa");
+        dataSource = new JdbcDataSource();
+        dataSource.setURL("jdbc:h2:mem:" + UUID.randomUUID());
+        dataSource.setUser("sa");
 
-        connection = ds.getConnection();
+        connection = dataSource.getConnection();
     }
 
     @Override
