@@ -15,6 +15,7 @@ import static cz.miou.h2.mariadb.time.DateTimeUtil.subtractInterval;
  * <ul>
  *   <li>interval value needs to be quoted with apostrophes (e.g. INTERVAL '1' SECOND)
  *   <li>only YEAR, MONTH, DAY, HOUR, MINUTE, SECOND interval qualifiers are supported in H2
+ * </ul>
  */
 public class DateSub implements FunctionDefinition {
 

@@ -14,6 +14,7 @@ import static cz.miou.h2.mariadb.util.LocaleUtil.findLocale;
  * Differences to MariaDB:
  * <ul>
  *   <li>Locale-based number formats are coming from Java implementation, that might have slight differences to MariaDB
+ * </ul>
  */
 public class Format implements FunctionDefinition {
 

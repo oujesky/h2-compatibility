@@ -10,6 +10,7 @@ import java.time.LocalTime;
  * Differences to MariaDB:
  * <ul>
  *   <li>hour range is 0 to 23, as different values are not supported by H2 TIME data type
+ * </ul>
  */
 public class MakeTime implements FunctionDefinition {
     @Override

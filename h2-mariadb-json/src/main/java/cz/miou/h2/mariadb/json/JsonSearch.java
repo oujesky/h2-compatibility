@@ -25,6 +25,7 @@ import static cz.miou.h2.mariadb.json.JsonUtil.toJsonValue;
  * Differences to MariaDB:
  * <ul>
  *   <li>Doesn't handle '**' wildcards
+ * </ul>
  */
 public class JsonSearch implements FunctionDefinition {
 

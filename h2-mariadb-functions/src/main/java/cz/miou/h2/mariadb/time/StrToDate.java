@@ -42,6 +42,7 @@ import static org.h2.util.JSR310Utils.localTimeToValue;
  *   <li>'%Z' token - time zone abbreviation is not supported as H2 keeps just time offset, not specific time zone
  *   <li>'%U' and '%u' token - week of year is not supported as Java week number doesn't support 0th week
  *   <li>doesn't work with "invalid" / zero dates otherwise accepted in MariaDB (e.g. 0000-00-00)
+ * </ul>
  */
 public class StrToDate implements FunctionDefinition {
 

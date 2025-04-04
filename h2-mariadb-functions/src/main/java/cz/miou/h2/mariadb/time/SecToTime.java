@@ -11,6 +11,7 @@ import static org.h2.util.DateTimeUtils.NANOS_PER_SECOND;
  * Differences to MariaDB:
  * <ul>
  *   <li>hour range is 0 to 23, as different values are not supported by H2 TIME data type
+ * </ul>
  */
 public class SecToTime implements FunctionDefinition {
 

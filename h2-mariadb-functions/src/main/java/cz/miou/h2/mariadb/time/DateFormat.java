@@ -14,6 +14,7 @@ import static cz.miou.h2.mariadb.time.DateTimeFormatUtil.formatDateTime;
  * <ul>
  *   <li>doesn't work with "invalid" dates otherwise accepted in MariaDB (e.g. 2006-06-00)
  *   <li>'%Z' token - time zone abbreviation is not supported as H2 keeps just time offset, not specific time zone
+ * </ul>
  */
 public class DateFormat implements FunctionDefinition {
 
