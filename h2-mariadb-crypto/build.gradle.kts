@@ -1,8 +1,13 @@
 plugins {
     id("h2-compatibility.library-conventions")
+    id("h2-compatibility.publishing-conventions")
 }
 
+description = "H2 DB MariaDB compatibility - Cryptography and Hashing functions"
+
 dependencies {
+    api(project(":h2-loader"))
+
     implementation(project(":h2-api"))
     implementation(libs.h2)
     implementation(libs.slf4j.api)

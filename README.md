@@ -2,11 +2,21 @@
 
 Library of functions to extend [H2](https://www.h2database.com/) database with functions missing in compatibility modes.
 
-Mainly for simplified integration testing in cases where running a real target database in container or standalone could be considered an overkill.
+Mainly for simplified integration testing in cases where running a real target database in container or standalone 
+could be considered an overkill.
 
-Aim is to provide missing functions, aggregations and types as compatible as possible, with minimal additional dependencies and targeting same minimal JDK version as H2 project, which is currently Java 11. Minimum H2 version that is compatible is 2.2.x.
+Aim is to provide missing functions, aggregations and types as compatible as possible, with minimal additional 
+dependencies and targeting same minimal JDK version as H2 project, which is currently Java 11. 
+Minimum H2 version that is compatible is 2.2.x.
 
-Functions are split into modules to minimize dependency footprint and are dynamically registered using the Java `ServiceLoader` mechanism.
+Functions are split into modules to minimize dependency footprint and are dynamically registered 
+using the Java `ServiceLoader` mechanism.
+
+### Disclaimer
+
+Though the functions have a suite of tests, there might be differences to original DB functions and 
+these are not optimized performance-wise - that means this library is intended for test usage and is not 
+recommended for any production or mission-critical deployment.
 
 ## Usage
 
@@ -79,6 +89,24 @@ If for some reason some of the functions aren't compatible with H2 anymore, it's
 ## Supported Functions
 
 ### MariaDB / MySQL
+
+#### Gradle
+```kotlin
+testImplementation("cz.miou.h2:h2-mariadb-all:1.0.0")
+```
+
+#### Maven
+
+```xml
+<dependency>
+    <groupId>cz.miou.h2</groupId>
+    <artifactId>h2-mariadb-all</artifactId>
+    <version>1.0.0</version>
+    <scope>test</scope>
+</dependency>
+```
+
+In case a stricter control over dependencies is needed, it's possible to include only as specific module.
 
 #### String functions
 

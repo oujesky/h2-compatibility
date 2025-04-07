@@ -7,6 +7,7 @@ ipaddress = "5.5.1"
 jackson = "2.18.3"
 json-path = "2.9.0"
 json-unit = "2.38.0"
+jreleaser = "1.17.0"
 junit = "5.12.1"
 logback = "1.5.18"
 slf4j = "2.0.17"
@@ -28,3 +29,6 @@ junit-jupiter-params = { module = "org.junit.jupiter:junit-jupiter-params" }
 logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
 slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
 uuid-generator = { module = "com.fasterxml.uuid:java-uuid-generator", version.ref = "uuid" }
+
+[plugins]
+jreleaser = { id = "org.jreleaser", version.ref = "jreleaser" }
