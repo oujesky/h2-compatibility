@@ -65,6 +65,8 @@ gradle.projectsEvaluated {
                         stagingRepository("${subproject.layout.buildDirectory.get()}/staging-deploy")
                     }
                     applyMavenCentralRules = true
+                    retryDelay = 20
+                    maxRetries = 90
                 }
             }
         }
