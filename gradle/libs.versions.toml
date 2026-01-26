@@ -1,5 +1,5 @@
 [versions]
-assertj = "3.27.2"
+assertj = "3.27.7"
 flyway = "9.22.3"
 h2 = "2.3.232"
 hkdf = "2.0.0"
