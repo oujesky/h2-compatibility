@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        h2-version: [ '2.2.224', '2.3.232' ]
+        h2-version: [ '2.2.224', '2.3.232', '2.4.240' ]
 
     steps:
       - uses: actions/checkout@v4

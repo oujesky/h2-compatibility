@@ -1,17 +1,17 @@
 [versions]
-assertj = "3.27.2"
+assertj = "3.27.7"
 flyway = "9.22.3"
-h2 = "2.3.232"
+h2 = "2.4.240"
 hkdf = "2.0.0"
-ipaddress = "5.5.1"
-jackson = "2.18.3"
-json-path = "2.9.0"
-json-unit = "2.38.0"
-jreleaser = "1.17.0"
-junit = "5.12.1"
-logback = "1.5.18"
+ipaddress = "5.6.2"
+jackson = "2.21.3"
+json-path = "2.10.0"
+json-unit = "2.40.1"
+jreleaser = "1.21.0"
+junit = "5.14.4"
+logback = "1.5.32"
 slf4j = "2.0.17"
-uuid = "5.1.0"
+uuid = "5.2.0"
 
 [libraries]
 assertj-core = { module = "org.assertj:assertj-core", version.ref = "assertj" }
