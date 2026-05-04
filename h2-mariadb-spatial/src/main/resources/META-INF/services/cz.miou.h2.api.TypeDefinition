@@ -1,0 +1,7 @@
+cz.miou.h2.mariadb.spatial.type.GeometryCollection
+cz.miou.h2.mariadb.spatial.type.LineString
+cz.miou.h2.mariadb.spatial.type.MultiLineString
+cz.miou.h2.mariadb.spatial.type.MultiPoint
+cz.miou.h2.mariadb.spatial.type.MultiPolygon
+cz.miou.h2.mariadb.spatial.type.Point
+cz.miou.h2.mariadb.spatial.type.Polygon

@@ -21,4 +21,18 @@ public class MariaDbTestQueryUtil {
     public static void verifyQueryError(String sql, String expectedMessage) {
         TestQueryUtil.verifyQueryError("MariaDB", sql, expectedMessage);
     }
+
+    public static void verifyUpdate(String sql, SqlThrowingConsumer<Integer> verifier) throws SQLException {
+        TestQueryUtil.verifyUpdate("MariaDB", sql, verifier);
+    }
+
+    public static void verifyUpdate(String sql, SqlThrowingConsumer<PreparedStatement> binder, SqlThrowingConsumer<Integer> verifier) throws SQLException {
+        TestQueryUtil.verifyUpdate("MariaDB", sql, binder, verifier);
+    }
+
+    public static void verifyFunctionExists(String function) throws SQLException {
+        TestQueryUtil.verifyFunctionExists("MariaDB", function);
+    }
+
+
 }
