@@ -22,17 +22,37 @@ public class TestQueryUtil {
     }
 
     public static void verifyQuery(String mode, String sql, SqlThrowingConsumer<PreparedStatement> binder, SqlThrowingConsumer<ResultSet> verifier) throws SQLException {
+        verify(mode, sql, binder, verifier, statement -> {
+            var rs = statement.getResultSet();
+            assertThat(rs.next()).isTrue();
+            return rs;
+        });
+    }
+
+    public static void verifyUpdate(String mode, String sql, SqlThrowingConsumer<Integer> verifier) throws SQLException {
+        verifyUpdate(mode, sql, statement -> {}, verifier);
+    }
+
+    public static void verifyUpdate(String mode, String sql, SqlThrowingConsumer<PreparedStatement> binder, SqlThrowingConsumer<Integer> verifier) throws SQLException {
+        verify(mode, sql, binder, verifier, PreparedStatement::getUpdateCount);
+    }
+
+    public static void verifyFunctionExists(String mode, String function) throws SQLException {
+        verifyQuery(
+            mode,
+            "SELECT EXISTS (SELECT 1 FROM INFORMATION_SCHEMA.ROUTINES WHERE ROUTINE_NAME = UPPER(?)) AS ALIAS_EXISTS;",
+            statement -> statement.setString(1, function),
+            rs -> assertThat(rs.getBoolean(1)).isTrue()
+        );
+    }
+
+    private static <T> void verify(String mode, String sql, SqlThrowingConsumer<PreparedStatement> binder, SqlThrowingConsumer<T> verifier, SqlThrowingFunction<PreparedStatement, T> transformer) throws SQLException {
         try (var connection = createConnection(mode);
              var statement = connection.prepareStatement(sql)) {
-
             binder.accept(statement);
-
-            statement.executeQuery();
-
-            try (var rs = statement.executeQuery()) {
-                assertThat(rs.next()).isTrue();
-                verifier.accept(rs);
-            }
+            statement.execute();
+            var result = transformer.apply(statement);
+            verifier.accept(result);
         }
     }
 
@@ -62,6 +82,11 @@ public class TestQueryUtil {
     @FunctionalInterface
     public interface SqlThrowingConsumer<T> {
         void accept(T value) throws SQLException;
+    }
+
+    @FunctionalInterface
+    public interface SqlThrowingFunction<T, R> {
+        R apply(T t) throws SQLException;
     }
 
 }

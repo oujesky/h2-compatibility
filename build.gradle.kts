@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "cz.miou.h2"
-version = "1.0.0"
+version = "1.1.0"
 description = "H2 DB compatibility functions"
 
 allprojects {

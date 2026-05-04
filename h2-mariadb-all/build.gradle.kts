@@ -12,4 +12,5 @@ dependencies {
     implementation(project(":h2-mariadb-inet"))
     implementation(project(":h2-mariadb-json"))
     implementation(project(":h2-mariadb-uuid"))
+    implementation(project(":h2-mariadb-spatial"))
 }

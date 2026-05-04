@@ -1,6 +1,7 @@
 package cz.miou.h2.loader;
 
 import cz.miou.h2.api.AggregateDefinition;
+import cz.miou.h2.api.ExtensionLoader;
 import cz.miou.h2.api.FunctionAlias;
 import cz.miou.h2.api.FunctionDefinition;
 import cz.miou.h2.api.TypeDefinition;
@@ -36,15 +37,52 @@ public class Loader {
      * @param connection JDBC connection to a H2 database
      * @throws SQLException in case any SQL error, except for duplicate aliases
      */
-    public static void load(Connection connection) throws SQLException {
+    public static String load(Connection connection) throws SQLException {
         var excludes = loadExcludes();
 
         try (var statement = connection.createStatement()) {
+            registerExtensions(statement, excludes);
             registerTypes(statement, excludes);
             registerFunctions(statement, excludes);
             registerFunctionAliases(statement, excludes);
             registerAggregates(statement, excludes);
         }
+
+        return "OK";
+    }
+
+    private static void registerExtensions(Statement statement, Set<String> excludes) throws SQLException {
+        for (var extension : ServiceLoader.load(ExtensionLoader.class)) {
+
+            if (excludes.contains(extension.getName())) {
+                if (LOG.isDebugEnabled()) {
+                    LOG.debug("Extension {} is excluded", extension.getName());
+                }
+                continue;
+            }
+
+            try {
+                registerExtension(statement, extension);
+            } catch (SQLException e) {
+                if (e.getErrorCode() == ERROR_CODE_FUNCTION_ALIAS_ALREADY_EXISTS) {
+                    if (LOG.isWarnEnabled()) {
+                        LOG.warn("Function {} already exists", extension.getName());
+                    }
+                } else {
+                    throw e;
+                }
+            }
+
+            initializeExtension(statement, extension);
+        }
+    }
+
+    private static void registerExtension(Statement statement, ExtensionLoader extension) throws SQLException {
+        registerFunction(statement, extension.getName(), false, extension.getClassName(), extension.getMethodName());
+    }
+
+    private static void initializeExtension(Statement statement, ExtensionLoader extension) throws SQLException {
+        statement.execute("CALL " + extension.getName() + "()");
     }
 
     private static void registerTypes(Statement statement, Set<String> excludes) throws SQLException {

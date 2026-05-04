@@ -1,0 +1,39 @@
+package cz.miou.h2.mariadb.spatial.type;
+
+import cz.miou.h2.test.H2ConnectionExtension;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.Polygon;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import static cz.miou.h2.mariadb.spatial.type.GeometryTestUtil.verifyGeometry;
+import static org.assertj.core.api.Assertions.assertThat;
+
+/**
+ * Test for {@link cz.miou.h2.mariadb.spatial.type.Polygon}.
+ */
+@ExtendWith(H2ConnectionExtension.class)
+class PolygonTest {
+
+    @Test
+    void testType(Connection connection) throws SQLException {
+        verifyGeometry(connection, "POLYGON", "Polygon((1 1,1 5,4 9,6 9,9 3,7 2,1 1))", Polygon.class, result -> {
+            assertThat(result.getCoordinates())
+                .containsExactly(
+                    new Coordinate(1, 1),
+                    new Coordinate(1, 5),
+                    new Coordinate(4, 9),
+                    new Coordinate(6, 9),
+                    new Coordinate(9, 3),
+                    new Coordinate(7, 2),
+                    new Coordinate(1, 1)
+                );
+            assertThat(result.getNumInteriorRing())
+                .isZero();
+        });
+    }
+
+}

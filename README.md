@@ -24,7 +24,7 @@ recommended for any production or mission-critical deployment.
 
 #### Gradle
 ```kotlin
-testImplementation("cz.miou.h2:h2-[DB]-[FUNCTIONS]:1.0.0")
+testRuntimeOnly("cz.miou.h2:h2-[DB]-[FUNCTIONS]:1.1.0")
 ```
 
 #### Maven
@@ -33,7 +33,7 @@ testImplementation("cz.miou.h2:h2-[DB]-[FUNCTIONS]:1.0.0")
 <dependency>
     <groupId>cz.miou.h2</groupId>
     <artifactId>h2-[DB]-[FUNCTIONS]</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -68,7 +68,7 @@ version 0 targeting a H2 database environment, that would load all currently pre
 
 ##### Gradle
 ```kotlin
-testRuntimeOnly("cz.miou.h2:h2-loader-flyway:1.0.0")
+testRuntimeOnly("cz.miou.h2:h2-loader-flyway:1.1.0")
 ```
 
 ##### Maven
@@ -77,7 +77,7 @@ testRuntimeOnly("cz.miou.h2:h2-loader-flyway:1.0.0")
 <dependency>
     <groupId>cz.miou.h2</groupId>
     <artifactId>h2-loader-flyway</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -92,7 +92,7 @@ If for some reason some of the functions aren't compatible with H2 anymore, it's
 
 #### Gradle
 ```kotlin
-testImplementation("cz.miou.h2:h2-mariadb-all:1.0.0")
+testRuntimeOnly("cz.miou.h2:h2-mariadb-all:1.1.0")
 ```
 
 #### Maven
@@ -101,7 +101,7 @@ testImplementation("cz.miou.h2:h2-mariadb-all:1.0.0")
 <dependency>
     <groupId>cz.miou.h2</groupId>
     <artifactId>h2-mariadb-all</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -298,6 +298,201 @@ Module `h2-mariadb-uuid`
 
 </details>
 
+#### Spatial functions
+
+Module `h2-mariadb-spatial`
+
+<details>
+
+<summary>List of supported types</summary>
+
+* [`POINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/point)
+* [`LINESTRING`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/linestring) (implemented in H2GIS)
+* [`POLYGON`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/polygon)
+* [`MULTIPOINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/multipoint)
+* [`MULTILINESTRING`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/multilinestring)
+* [`MULTIPOLYGON`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/multipolygon)
+* [`GEOMETRYCOLLECTION`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/geometrycollection)
+
+</details>
+
+<details>
+
+<summary>List of supported functions</summary>
+
+* [`AREA`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/polygon-properties-area) (implemented in H2GIS)
+* [`AsBinary`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/wkb-asbinary) (implemented in H2GIS)
+* [`AsText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/wkt-astext) (implemented in H2GIS)
+* [`AsWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/aswkb) (implemented in H2GIS)
+* [`AsWKT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/wkt-aswkt) (implemented in H2GIS)
+* [`BOUNDARY`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/geometry-properties-boundary) (implemented in H2GIS)
+* [`BUFFER`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/buffer) (implemented in H2GIS)
+* [`CENTROID`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/centroid) (implemented in H2GIS)
+* [`CONTAINS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/contains) (implemented in H2GIS)
+* [`CONVEXHULL`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/convexhull) (implemented in H2GIS)
+* [`CROSSES`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/crosses) (implemented in H2GIS)
+* [`DIMENSION`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/dimension) (implemented in H2GIS)
+* [`DISJOINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/disjoint) (implemented in H2GIS)
+* [`ENDPOINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/linestring-properties/linestring-properties-endpoint) (implemented in H2GIS)
+* [`EQUALS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/equals) (implemented in H2GIS)
+* [`EXTERIORRING`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/polygon-properties-exteriorring) (implemented in H2GIS)
+* [`GEOMETRYCOLLECTION`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/geometrycollection)
+* [`GeomCollFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/wkt-geomcollfromtext) (implemented in H2GIS)
+* [`GeomCollFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/wkb-geomcollfromwkb) (implemented in H2GIS)
+* [`GeometryCollectionFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/geometrycollectionfromtext) (implemented in H2GIS)
+* [`GeometryCollectionFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/geometrycollectionfromwkb) (implemented in H2GIS)
+* [`GeometryFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/geometryfromtext) (implemented in H2GIS)
+* [`GeometryFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/geometryfromwkb) (implemented in H2GIS)
+* [`GeometryN`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/geometry-properties-geometryn) (implemented in H2GIS)
+* [`GeometryType`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/geometry-properties-geometrytype) (implemented in H2GIS)
+* [`GeomFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/wkt-geomfromtext) (implemented in H2GIS)
+* [`GeomFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/wkb-geomfromwkb) (implemented in H2GIS)
+* [`GLENGTH`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/linestring-properties/glength) (implemented in H2GIS)
+* [`INTERIORRINGN`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/polygon-properties-interiorringn) (implemented in H2GIS)
+* [`INTERSECTS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/intersects) (implemented in H2GIS)
+* [`IsClosed`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/isclosed) (implemented in H2GIS)
+* [`IsEmpty`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/geometry-properties-isempty) (implemented in H2GIS)
+* [`IsRing`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/isring) (implemented in H2GIS)
+* [`IsSimple`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/geometry-properties-issimple) (implemented in H2GIS)
+* [`LINESTRING`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/linestring)
+* [`LineFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/wkt-linefromtext) (implemented in H2GIS)
+* [`LineFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/wkb-linefromwkb) (implemented in H2GIS)
+* [`LineStringFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/linestringfromtext) (implemented in H2GIS)
+* [`LineStringFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/linestringfromwkb) (implemented in H2GIS)
+* [`MBRContains`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/mbr-minimum-bounding-rectangle/mbrcontains)
+* [`MBRCoveredBy`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/mbr-minimum-bounding-rectangle/mbrcoveredby)
+* [`MBRDisjoint`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/mbr-minimum-bounding-rectangle/mbrdisjoint)
+* [`MBREqual`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/mbr-minimum-bounding-rectangle/mbrequal)
+* [`MBREquals`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/mbr-minimum-bounding-rectangle/mbrequal)
+* [`MBRIntersects`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/mbr-minimum-bounding-rectangle/mbrintersects)
+* [`MBROverlaps`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/mbr-minimum-bounding-rectangle/mbroverlaps)
+* [`MBRTouches`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/mbr-minimum-bounding-rectangle/mbrtouches)
+* [`MBRWithin`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/mbr-minimum-bounding-rectangle/mbrwithin)
+* [`MLineFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/mlinefromtext) (implemented in H2GIS)
+* [`MLineFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/mlinefromwkb) (implemented in H2GIS)
+* [`MPointFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/mpointfromtext) (implemented in H2GIS)
+* [`MPointFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/mpointfromwkb) (implemented in H2GIS)
+* [`MPolyFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/mpolyfromtext) (implemented in H2GIS)
+* [`MPolyFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/mpolyfromwkb) (implemented in H2GIS)
+* [`MULTILINESTRING`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/multilinestring)
+* [`MultiLineStringFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/multilinestringfromtext) (implemented in H2GIS)
+* [`MultiLineStringFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/multilinestringfromwkb) (implemented in H2GIS)
+* [`MULTIPOINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/multipoint)
+* [`MultiPointFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/multipointfromtext) (implemented in H2GIS)
+* [`MultiPointFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/multipointfromwkb) (implemented in H2GIS)
+* [`MULTIPOLYGON`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/multipolygon)
+* [`MultiPolygonFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/multipolygonfromtext) (implemented in H2GIS)
+* [`MultiPolygonFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/multipolygonfromwkb) (implemented in H2GIS)
+* [`NumGeometries`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/geometry-properties-numgeometries) (implemented in H2GIS)
+* [`NumInteriorRings`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/polygon-properties-numinteriorrings) (implemented in H2GIS)
+* [`NumPoints`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/linestring-properties/linestring-properties-numpoints) (implemented in H2GIS)
+* [`OVERLAPS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/overlaps) (implemented in H2GIS)
+* [`POINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/point) (implemented in H2GIS)
+* [`PointFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/wkt-pointfromtext) (implemented in H2GIS)
+* [`PointFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/wkb-pointfromwkb) (implemented in H2GIS)
+* [`PointN`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/linestring-properties/linestring-properties-pointn) (implemented in H2GIS)
+* [`PointOnSurface`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/pointonsurface) (implemented in H2GIS)
+* [`POLYGON`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/polygon)
+* [`PolyFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/wkt-polyfromtext) (implemented in H2GIS)
+* [`PolyFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/wkb-polyfromwkb) (implemented in H2GIS)
+* [`PolygonFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/polygonfromtext) (implemented in H2GIS)
+* [`PolygonFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/polygonfromwkb) (implemented in H2GIS)
+* [`SRID`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/geometry-properties-srid) (implemented in H2GIS)
+* [`STARTPOINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/linestring-properties/linestring-properties-startpoint) (implemented in H2GIS)
+* [`ST_AREA`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/st_area) (implemented in H2GIS)
+* [`ST_AsBinary`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_asbinary) (implemented in H2GIS)
+* [`ST_AsGeoJSON`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/geojson-st_asgeojson) (implemented in H2GIS)
+* [`ST_AsText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_astext) (implemented in H2GIS)
+* [`ST_AsWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_aswkb) (implemented in H2GIS)
+* [`ST_AsWKT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_aswkt) (implemented in H2GIS)
+* [`ST_BOUNDARY`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_boundary) (implemented in H2GIS)
+* [`ST_BUFFER`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/st_buffer) (implemented in H2GIS)
+* [`ST_CENTROID`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/st_centroid) (implemented in H2GIS)
+* [`ST_Collect`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/miscellaneous-gis-functions/st_collect) (implemented in H2GIS)
+* [`ST_CONTAINS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st-contains) (implemented in H2GIS)
+* [`ST_CONVEXHULL`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/st_convexhull) (implemented in H2GIS)
+* [`ST_CROSSES`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st-crosses) (implemented in H2GIS)
+* [`ST_DIFFERENCE`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st_difference) (implemented in H2GIS)
+* [`ST_DIMENSION`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_dimension) (implemented in H2GIS)
+* [`ST_DISJOINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st_disjoint) (implemented in H2GIS)
+* [`ST_DISTANCE`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st_distance) (implemented in H2GIS)
+* [`ST_DISTANCE_SPHERE`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st_distance_sphere)
+* [`ST_ENDPOINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/linestring-properties/st_endpoint) (implemented in H2GIS)
+* [`ST_ENVELOPE`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_envelope) (implemented in H2GIS)
+* [`ST_EQUALS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st-equals) (implemented in H2GIS)
+* [`ST_EXTERIORRING`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/st_exteriorring) (implemented in H2GIS)
+* [`ST_GeoHash`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/miscellaneous-gis-functions/st_geohash)
+* [`ST_GeomCollFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_geomcollfromtext) (implemented in H2GIS)
+* [`ST_GeomCollFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_geomcollfromwkb) (implemented in H2GIS)
+* [`ST_GeomFromGeoJSON`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/st_geomfromgeojson) (implemented in H2GIS)
+* [`ST_GeomFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_geomfromtext) (implemented in H2GIS)
+* [`ST_GeomFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_geomfromwkb) (implemented in H2GIS)
+* [`ST_GEOMETRYN`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_geometryn) (implemented in H2GIS)
+* [`ST_GEOMETRYTYPE`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_geometrytype) (implemented in H2GIS)
+* [`ST_GeometryCollectionFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_geometrycollectionfromtext) (implemented in H2GIS)
+* [`ST_GeometryCollectionFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_geometrycollectionfromwkb) (implemented in H2GIS)
+* [`ST_GeometryFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_geometryfromtext) (implemented in H2GIS)
+* [`ST_GeometryFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_geometryfromwkb) (implemented in H2GIS)
+* [`ST_INTERIORRINGN`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/st_interiorringn) (implemented in H2GIS)
+* [`ST_INTERSECTION`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/st_intersection) (implemented in H2GIS)
+* [`ST_INTERSECTS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st-intersects) (implemented in H2GIS)
+* [`ST_ISCLOSED`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_isclosed) (implemented in H2GIS)
+* [`ST_ISEMPTY`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_isempty) (implemented in H2GIS)
+* [`ST_IsRing`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_isring) (implemented in H2GIS)
+* [`ST_IsSimple`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_issimple) (implemented in H2GIS)
+* [`ST_IsValid`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/miscellaneous-gis-functions/st_isvalid) (implemented in H2GIS)
+* [`ST_LatFromGeoHash`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/miscellaneous-gis-functions/st_latfromgeohash)
+* [`ST_LENGTH`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st_length) (implemented in H2GIS)
+* [`ST_LineFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_linefromtext) (implemented in H2GIS)
+* [`ST_LineFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_linefromwkb) (implemented in H2GIS)
+* [`ST_LineStringFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_linestringfromtext) (implemented in H2GIS)
+* [`ST_LineStringFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_linestringfromwkb) (implemented in H2GIS)
+* [`ST_LongFromGeoHash`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/miscellaneous-gis-functions/st_longfromgeohash)
+* [`ST_MLineFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/mlinefromtext) (implemented in H2GIS)
+* [`ST_MLineFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/mlinefromwkb) (implemented in H2GIS)
+* [`ST_MPointFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_mpointfromtext) (implemented in H2GIS)
+* [`ST_MPointFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_mpointfromwkb) (implemented in H2GIS)
+* [`ST_MPolyFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_mpolyfromtext) (implemented in H2GIS)
+* [`ST_MPolyFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_mpolyfromwkb) (implemented in H2GIS)
+* [`ST_MultiLineStringFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_multilinestringfromtext) (implemented in H2GIS)
+* [`ST_MultiLineStringFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/multilinestringfromwkb) (implemented in H2GIS)
+* [`ST_MultiPointFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_multipointfromtext) (implemented in H2GIS)
+* [`ST_MultiPointFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_multipointfromwkb) (implemented in H2GIS)
+* [`ST_MultiPolygonFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_multipolygonfromtext) (implemented in H2GIS)
+* [`ST_MultiPolygonFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_multipolygonfromwkb) (implemented in H2GIS)
+* [`ST_NUMGEOMETRIES`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_numgeometries) (implemented in H2GIS)
+* [`ST_NUMINTERIORRINGS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/polygon-properties/st_numinteriorrings) (implemented in H2GIS)
+* [`ST_NUMPOINTS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/linestring-properties/st_numpoints) (implemented in H2GIS)
+* [`ST_OVERLAPS`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st-overlaps) (implemented in H2GIS)
+* [`ST_POINTN`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/linestring-properties/st_pointn) (implemented in H2GIS)
+* [`ST_POINTONSURFACE`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/st_pointonsurface) (implemented in H2GIS)
+* [`ST_PointFromGeoHash`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/miscellaneous-gis-functions/st_pointfromgeohash)
+* [`ST_PointFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_pointfromtext) (implemented in H2GIS)
+* [`ST_PointFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_pointfromwkb) (implemented in H2GIS)
+* [`ST_PolyFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_polyfromtext) (implemented in H2GIS)
+* [`ST_PolyFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_polyfromwkb) (implemented in H2GIS)
+* [`ST_PolygonFromText`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkt/st_polygonfromtext) (implemented in H2GIS)
+* [`ST_PolygonFromWKB`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/wkb/st_polygonfromwkb) (implemented in H2GIS)
+* [`ST_RELATE`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_relate) (implemented in H2GIS)
+* [`ST_Simplify`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/miscellaneous-gis-functions/st_simplify) (implemented in H2GIS)
+* [`ST_SRID`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-properties/st_srid) (implemented in H2GIS)
+* [`ST_STARTPOINT`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/linestring-properties/st_startpoint) (implemented in H2GIS)
+* [`ST_SYMDIFFERENCE`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/st_symdifference) (implemented in H2GIS)
+* [`ST_TOUCHES`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st-touches) (implemented in H2GIS)
+* [`ST_UNION`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-constructors/st_union) (implemented in H2GIS)
+* [`ST_Validate`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/miscellaneous-gis-functions/st_validate)
+* [`ST_WITHIN`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/st-within) (implemented in H2GIS)
+* [`ST_X`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/point-properties/st_x) (implemented in H2GIS)
+* [`ST_Y`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/point-properties/st_y) (implemented in H2GIS)
+* [`TOUCHES`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/touches) (implemented in H2GIS)
+* [`WITHIN`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/geometry-relations/within) (implemented in H2GIS)
+* [`X`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/point-properties/point-properties-x) (implemented in H2GIS)
+* [`Y`](https://mariadb.com/docs/server/reference/sql-statements/geometry-constructors/point-properties/point-properties-y) (implemented in H2GIS)
+
+`ENVELOPE` is not supported because it collides with H2's built-in `ENVELOPE` aggregate function.
+
+</details>
+
 ##### Notes
 
 Due to how `DATE`, `TIME` and `TIMESTAMP` types in H2 works, the functions behave as if MariaDB had
@@ -306,4 +501,3 @@ Due to how `DATE`, `TIME` and `TIMESTAMP` types in H2 works, the functions behav
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
-

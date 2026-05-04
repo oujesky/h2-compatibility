@@ -1,6 +1,7 @@
 package cz.miou.h2.loader;
 
 import cz.miou.h2.test.H2ConnectionExtension;
+import cz.miou.h2.test.TestExtensionLoader;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
@@ -74,6 +75,16 @@ class LoaderTest {
         var rs = statement.getResultSet();
         assertThat(rs.next()).isTrue();
         assertThat(rs.getString(1)).isEqualTo("test1,test2");
+    }
+
+    @Test
+    void testExtensionLoader(Connection connection) throws SQLException {
+        TestExtensionLoader.reset();
+        assertThat(TestExtensionLoader.isLoaded()).isFalse();
+
+        Loader.load(connection);
+
+        assertThat(TestExtensionLoader.isLoaded()).isTrue();
     }
 
 }
