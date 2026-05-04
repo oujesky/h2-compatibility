@@ -148,17 +148,25 @@ Module `h2-mariadb-functions`
 <summary>List of supported functions</summary>
 
 * [`BIT_COUNT`](https://mariadb.com/kb/en/bit_count/)
+* [`BIT_XOR`](https://mariadb.com/kb/en/bit_xor/)
+* [`CHARSET`](https://mariadb.com/kb/en/charset/)
+* [`COERCIBILITY`](https://mariadb.com/kb/en/coercibility/)
+* [`COLLATION`](https://mariadb.com/kb/en/collation/)
 * [`CONV`](https://mariadb.com/kb/en/conv/)
+* [`CONNECTION_ID`](https://mariadb.com/kb/en/connection_id/)
 * [`FORMAT_BYTES`](https://mariadb.com/kb/en/miscellaneous-functions-format_bytes/)
 * [`ISNULL`](https://mariadb.com/kb/en/isnull/)
 * [`LOG2`](https://mariadb.com/kb/en/log2/)
 * [`OCT`](https://mariadb.com/kb/en/oct/)
 * [`POW`](https://mariadb.com/kb/en/pow/)
 * [`SLEEP`](https://mariadb.com/kb/en/sleep/)
+* [`STD`](https://mariadb.com/kb/en/std/)
 * [`SYS_GUID`](https://mariadb.com/kb/en/sys_guid/)
+* [`TO_NUMBER`](https://mariadb.com/kb/en/to_number/)
 * [`UNCOMPRESSED_LENGTH`](https://mariadb.com/kb/en/uncompressed_length/)
 * [`UNCOMPRESS`](https://mariadb.com/kb/en/uncompress/)
 * [`UUID_SHORT`](https://mariadb.com/kb/en/uuid_short/)
+* [`VERSION`](https://mariadb.com/kb/en/version/)
 
 </details>
 
@@ -201,6 +209,9 @@ Module `h2-mariadb-functions`
 * [`WEEKDAY`](https://mariadb.com/kb/en/weekday/)
 * [`WEEKOFYEAR`](https://mariadb.com/kb/en/weekofyear/)
 * [`YEARWEEK`](https://mariadb.com/kb/en/yearweek/)
+
+[`GET_FORMAT`](https://mariadb.com/kb/en/get_format/) is intentionally left out because MariaDB requires a keyword
+first argument, for example `GET_FORMAT(DATE, 'EUR')` which is not possible to replicate with H2.
 
 </details>
 
@@ -277,6 +288,7 @@ Module `h2-mariadb-json`
 * [`JSON_REMOVE`](https://mariadb.com/kb/en/json_remove/)
 * [`JSON_REPLACE`](https://mariadb.com/kb/en/json_replace/)
 * [`JSON_SEARCH`](https://mariadb.com/kb/en/json_search/)
+* [`JSON_SCHEMA_VALID`](https://mariadb.com/kb/en/json_schema_valid/)
 * [`JSON_SET`](https://mariadb.com/kb/en/json_set/)
 * [`JSON_TYPE`](https://mariadb.com/kb/en/json_type/)
 * [`JSON_UNQUOTE`](https://mariadb.com/kb/en/json_unquote/)

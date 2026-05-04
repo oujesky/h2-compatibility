@@ -12,6 +12,7 @@ dependencies {
     implementation(libs.slf4j.api)
     implementation(libs.jackson.databind)
     implementation(libs.json.path)
+    implementation(libs.json.schema.validator)
 
     testImplementation(project(":h2-mariadb-test"))
     testImplementation(libs.junit.jupiter)
