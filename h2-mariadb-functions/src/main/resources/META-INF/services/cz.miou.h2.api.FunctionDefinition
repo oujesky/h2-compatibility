@@ -1,4 +1,8 @@
 cz.miou.h2.mariadb.binary.BitCount
+cz.miou.h2.mariadb.misc.Charset
+cz.miou.h2.mariadb.misc.Coercibility
+cz.miou.h2.mariadb.misc.Collation
+cz.miou.h2.mariadb.misc.ConnectionId
 cz.miou.h2.mariadb.misc.FormatBytes
 cz.miou.h2.mariadb.misc.IsNull
 cz.miou.h2.mariadb.misc.Sleep
@@ -6,10 +10,12 @@ cz.miou.h2.mariadb.misc.SysGuid
 cz.miou.h2.mariadb.misc.Uncompress
 cz.miou.h2.mariadb.misc.UncompressedLength
 cz.miou.h2.mariadb.misc.UuidShort
+cz.miou.h2.mariadb.misc.Version
 cz.miou.h2.mariadb.numeric.Conv
 cz.miou.h2.mariadb.numeric.Log2
 cz.miou.h2.mariadb.numeric.Oct
 cz.miou.h2.mariadb.numeric.Pow
+cz.miou.h2.mariadb.numeric.ToNumber
 cz.miou.h2.mariadb.string.Bin
 cz.miou.h2.mariadb.string.Elt
 cz.miou.h2.mariadb.string.ExportSet

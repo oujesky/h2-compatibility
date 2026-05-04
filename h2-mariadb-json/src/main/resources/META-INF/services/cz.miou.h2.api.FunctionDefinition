@@ -27,6 +27,7 @@ cz.miou.h2.mariadb.json.JsonQuery
 cz.miou.h2.mariadb.json.JsonQuote
 cz.miou.h2.mariadb.json.JsonRemove
 cz.miou.h2.mariadb.json.JsonSearch
+cz.miou.h2.mariadb.json.JsonSchemaValid
 cz.miou.h2.mariadb.json.JsonType
 cz.miou.h2.mariadb.json.JsonUnquote
 cz.miou.h2.mariadb.json.JsonValue
